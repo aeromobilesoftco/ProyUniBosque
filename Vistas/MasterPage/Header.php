@@ -9,8 +9,14 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Luna</title>
+  <title>Proyecto Universidad del Bosque</title>
 
+    <!-- Librerias Jquery-->
+    <script src="../Vistas/Diseno/JqueryBlue/jquery-1.12.4.js"></script>
+    <link href="../Vistas/Diseno/JqueryBlue/jquery-ui.css" rel="stylesheet" />
+    <script src="../Vistas/Diseno/JqueryBlue/jquery-ui.js"></script>
+    
+  
   <!-- Custom fonts for this template-->
   <link href="../Vistas/Diseno/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="../Vistas/Diseno/vendor/" rel="stylesheet" type="text/css">
@@ -20,19 +26,69 @@
   <!-- Custom styles for this template-->
   <link href="../Vistas/Diseno/css/sb-admin.css" rel="stylesheet">
 
+  <!-- Elementos JQuery-->  
+
+  <!-- Tabs--> 
+  <script>
+  $( function($) {
+    $( "#tabs" ).tabs();
+  } );
+  </script>  
+
+  <!-- Combos--> 
+  <style>
+    fieldset {
+      border: 0;
+    }
+    label {
+      display: block;
+      margin: 15px 0 0 0;
+    }
+    .overflow {
+      height: 100px;
+    }
+  </style>
+
+  <script>
+  $( function($) {
+    $( "#CmbSelOP" ).selectmenu();
+    $( "#CmbEdoVia" ).selectmenu();
+  } );
+  </script>
+  
+        <!-- Inicio Botones -->  
+        <script>
+       $(function($) {
+       $( "input[type=submit], button" )
+       .button()
+       });
+       </script>
+ <!-- Inicio Botones -->  
+
+        <!-- Inicio Mensajes -->
+       
+ <script>
+$(function($) {
+$( "#dialog" ).dialog();
+});
+</script>       
+       <!-- Fin Mensajes -->
+ 
 </head>
 
 <body id="page-top">
 
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-    <a class="navbar-brand mr-1" href="index.html">Start Bootstrap</a>
+    <a class="navbar-brand mr-1" href="index.html">Proyecto demostracion</a>
 
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
     </button>
 
-    <!-- Navbar Search -->
+    <!-- Navbar -->
+    <!--
+
     <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
       <div class="input-group">
         <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
@@ -43,8 +99,7 @@
         </div>
       </div>
     </form>
-
-    <!-- Navbar -->
+    
     <ul class="navbar-nav ml-auto ml-md-0">
       <li class="nav-item dropdown no-arrow mx-1">
         <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -82,7 +137,7 @@
         </div>
       </li>
     </ul>
-
+-->
   </nav>
 
   <div id="wrapper">
@@ -92,17 +147,17 @@
       <li class="nav-item active">
         <a class="nav-link" href="index.html">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span>
+          <span>Inicio</span>
         </a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-fw fa-folder"></i>
-          <span>Pages</span>
+          <span>Parametros</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <h6 class="dropdown-header">Login Screens:</h6>
-          <a class="dropdown-item" href="login.html">Login</a>
+          <h6 class="dropdown-header">Opciones:</h6>
+          <a class="dropdown-item" href="../Vistas/FrmRuta.php">Nueva Ruta</a>
           <a class="dropdown-item" href="register.html">Register</a>
           <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
           <div class="dropdown-divider"></div>
