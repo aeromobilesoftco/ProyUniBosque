@@ -81,7 +81,6 @@ public $notifError;
                     echo "<option>".$this->Zelda['paramres']."</option>";
                 }     
                 
-                echo "SELECT ".$filtro." FROM ".$nomtab;
             }
             else 
             {
@@ -109,6 +108,145 @@ public $notifError;
             return false;	
         }
         $this->LineaCon->close();        
+    }
+    
+    public function CallPA($NomPa,$ParamsPA)
+    {
+        $this->conectar();
+        $this->ComandoSQL="CALL $NomPa (".$ParamsPA.")";
+
+        if($this->resultado = mysqli_query($this->LineaCon,$this->ComandoSQL,MYSQLI_USE_RESULT))
+        { 
+            
+                while($this->Zelda=$this->resultado->fetch_array(MYSQLI_ASSOC))
+                {
+                    
+                    if($this->notifError=null || $this->notifError='')
+                    {
+                        $this->notifError="Afirmativo";
+                    }
+                    else
+                    {
+                        $this->notifError=$this->Zelda['valerror'];
+                    }
+                }  
+                
+	    return true;		
+        }
+        else
+        {                
+	    $this->notifError='error '.  $this->LineaCon->error;
+            return false;	
+        }
+        $this->LineaCon->close();           
+    }
+    
+    public function ImpRepGen($CmbSelVeh,$CmbSelRut)
+    {
+    	$datosu =array();
+        $this->conectar();
+        $this->ComandoSQL="select VehiculoAsig,conductorasig,Elemtrans,ruta,CantCarga,valcarga from V_REPGEN WHERE VehiculoAsig = '".$CmbSelVeh. "' and ruta='".$CmbSelRut."'";
+        if($this->resultado = mysqli_query($this->LineaCon,$this->ComandoSQL,MYSQLI_USE_RESULT))
+        {   
+echo '<table border="1">'
+      .'<tr>'
+      .'<th>Vehiculo Asignado</th>'
+      .'<th>Conductor</th>'
+      .'<th>Elemento cargado</th>'
+      .'<th>Ruta</th>'
+      .'<th>Cantidad cargada</th>'
+      .'<th>Costo de Envio</th>'
+      .'</tr>';
+
+            while($this->Zelda=$this->resultado->fetch_array(MYSQLI_ASSOC))
+            {
+                echo '<tr>'
+                . '<td>'
+                . $this->Zelda['VehiculoAsig']
+                . '</td>'
+                . '<td>'
+                . $this->Zelda['conductorasig']
+                . '</td>'
+                . '<td>'
+                . $this->Zelda['Elemtrans']
+                . '</td>'
+                . '<td>'
+                . $this->Zelda['ruta']
+                . '</td>'
+                . '<td>'
+                . $this->Zelda['CantCarga']
+                . '</td>'
+                . '<td type="number">'
+                . $this->Zelda['valcarga']
+                . '</td>'
+                . '</tr>';
+            }    
+            echo '</table>';
+	        return true;	
+        }
+        else
+        {       
+                $this->notifError='Negativo';
+	        return false;	
+        }
+        $this->LineaCon->close(); 
+         
+    }
+
+    public function ImpRepGenVehi($CmbSelVeh)
+    {
+    	$datosu =array();
+        $this->conectar();
+        $this->ComandoSQL="select Vehiculo,placa,ManifestoCarga,Seguro,SOAT,TarjetaOperacion,TecnicoMecanica from V_REPVEHI WHERE Vehiculo = '".$CmbSelVeh. "'";
+        if($this->resultado = mysqli_query($this->LineaCon,$this->ComandoSQL,MYSQLI_USE_RESULT))
+        {   
+echo '<table border="1">'
+      .'<tr>'
+      .'<th>Vehiculo</th>'
+      .'<th>placa</th>'
+      .'<th>Manifesto de Carga</th>'
+      .'<th>Seguro</th>'
+      .'<th>SOAT</th>'
+      .'<th>Tarjeta Operacion</th>'
+      .'<th>Tecnico Mecanica</th>'
+      .'</tr>';
+
+            while($this->Zelda=$this->resultado->fetch_array(MYSQLI_ASSOC))
+            {
+                echo '<tr>'
+                . '<td>'
+                . $this->Zelda['Vehiculo']
+                . '</td>'
+                . '<td>'
+                . $this->Zelda['placa']
+                . '</td>'
+                . '<td>'
+                . $this->Zelda['ManifestoCarga']
+                . '</td>'
+                . '<td>'
+                . $this->Zelda['Seguro']
+                . '</td>'
+                . '<td>'
+                . $this->Zelda['SOAT']
+                . '</td>'
+                . '<td>'
+                . $this->Zelda['TarjetaOperacion']
+                . '</td>'
+                . '<td>'
+                . $this->Zelda['TecnicoMecanica']
+                . '</td>'
+                . '</tr>';
+            }    
+            echo '</table>';
+	        return true;	
+        }
+        else
+        {       
+                $this->notifError='Negativo';
+	        return false;	
+        }
+        $this->LineaCon->close(); 
+         
     }
     
 }

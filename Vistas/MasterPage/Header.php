@@ -53,13 +53,31 @@
   $( function($) {
     $( "#CmbSelOP" ).selectmenu();
     $( "#CmbEdoVia" ).selectmenu();
+    // Conductores
+    $( "#CmbTipoLic").selectmenu();
+    $( "#CmbTipoId").selectmenu();
+    $( "#CmbTipVehi").selectmenu();
+    $( "#CmbTipopeso").selectmenu();
+    // Documentacion vehiculo
+    $( "#CmbSoat").selectmenu();
+    $( "#CmbTecnoMec").selectmenu();
+    $( "#CmbTarOpe").selectmenu();
+    $( "#CmbMancar").selectmenu();
+    $( "#CmbSegu").selectmenu();
+    // Selectores asignacion de rutas
+    $( "#CmbSelRut").selectmenu();
+    $( "#CmbSelVeh").selectmenu();
+    $( "#CmbSelCond").selectmenu();
+    $( "#CmbTipCar").selectmenu();
+    $( "#CmbSelVeh1").selectmenu();
+    
   } );
   </script>
   
         <!-- Inicio Botones -->  
         <script>
        $(function($) {
-       $( "input[type=submit], button" )
+       $( "input[type=submit]" )
        .button()
        });
        </script>
@@ -73,14 +91,26 @@ $( "#dialog" ).dialog();
 });
 </script>       
        <!-- Fin Mensajes -->
- 
+
+<!-- Tooltip -->       
+  <script>
+  $( function($) {
+    $( document ).tooltip();
+  } );
+  </script>
+  <style>
+  label {
+    display: inline-block;
+    width: 5em;
+  }
+  </style>
 </head>
 
 <body id="page-top">
 
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-    <a class="navbar-brand mr-1" href="index.html">Proyecto demostracion</a>
+    <a class="navbar-brand mr-1" href="../Vistas/Index.php">Proyecto demostracion</a>
 
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
@@ -158,22 +188,31 @@ $( "#dialog" ).dialog();
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <h6 class="dropdown-header">Opciones:</h6>
           <a class="dropdown-item" href="../Vistas/FrmRuta.php">Nueva Ruta</a>
-          <a class="dropdown-item" href="register.html">Register</a>
-          <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
-          <div class="dropdown-divider"></div>
-          <h6 class="dropdown-header">Other Pages:</h6>
-          <a class="dropdown-item" href="404.html">404 Page</a>
-          <a class="dropdown-item" href="blank.html">Blank Page</a>
+          <a class="dropdown-item" href="../Vistas/FrmConduct.php">Crear Conductor</a>
+          <a class="dropdown-item" href="../Vistas/FrmVehi.php">Crear Vehiculos</a>
+          <a class="dropdown-item" href="../Vistas/FrmElements.php">Tipo de carga</a>
         </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Charts</span></a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Asignacion de rutas</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+          <h6 class="dropdown-header">Opciones:</h6>
+          <a class="dropdown-item" href="../Vistas/FrmAsigRuta.php">Asignar Ruta</a>
+
+        </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Tables</span></a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Reportes</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+          <h6 class="dropdown-header">Opciones:</h6>
+          <a class="dropdown-item" href="../Vistas/FrmRepGen.php">Reporte general</a>
+
+        </div>
       </li>
     </ul>

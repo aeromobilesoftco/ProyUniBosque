@@ -35,6 +35,15 @@
                         ?>
                     </select>                     
                 </td>
+                <td>
+                    SOAT:
+                </td>
+                <td>
+                    <select name="CmbSoat" id="CmbSoat">
+                      <option>Si</option>
+                      <option>No</option>
+                    </select>                    
+                </td>
             </tr>
             <tr>
                 <td>
@@ -42,6 +51,15 @@
                 </td>
                 <td>
                     <input id="txtmarca" name="txtmarca" type="text" maxlength="100" required="">
+                </td>
+                <td>
+                    Revision Tecnico Mecanica:
+                </td>
+                <td>
+                    <select name="CmbTecnoMec" id="CmbTecnoMec">
+                      <option>Si</option>
+                      <option>No</option>
+                    </select>                    
                 </td>
             </tr>
             <tr>
@@ -51,6 +69,15 @@
                 <td>
                     <input id="txtcapcarga" name="txtcapcarga" type="number" maxlength="4" min="100" max="1000" required>
                 </td>
+                <td>
+                    Tarjeta Operacion:
+                </td>
+                <td>
+                    <select name="CmbTarOpe" id="CmbTarOpe">
+                      <option>Si</option>
+                      <option>No</option>
+                    </select>                    
+                </td>
             </tr>
             <tr>
                 <td>
@@ -59,6 +86,32 @@
                 <td>
                     <input id="txtplaca" name="txtplaca" maxlength="7" type="text"  required>
                 </td>
+                <td>
+                    Manifiesto de carga:
+                </td>
+                <td>
+                    <select name="CmbMancar" id="CmbMancar">
+                      <option>Si</option>
+                      <option>No</option>
+                    </select>                    
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    
+                </td>
+                <td>
+                    
+                </td>
+                <td>
+                    Seguro:
+                </td>
+                <td>
+                    <select name="CmbSegu" id="CmbSegu">
+                      <option>Si</option>
+                      <option>No</option>
+                    </select>                    
+                </td>                
             </tr>
         </table>
         
@@ -72,9 +125,16 @@
         $txtcapcarga=$_POST['txtcapcarga'];
         $txtplaca=$_POST['txtplaca'];
         
+        // Documentacion
+        $CmbSoat=$_POST['CmbSoat'];
+        $CmbTecnoMec=$_POST['CmbTecnoMec'];
+        $CmbTarOpe=$_POST['CmbTarOpe'];
+        $CmbMancar=$_POST['CmbMancar'];
+        $CmbSegu=$_POST['CmbSegu'];
+        
         if (isset($_POST['BtnGuardar']))
         {
-            $MdlCom->GuardaVehi($CmbTipVehi, $txtmarca, $txtcapcarga, $txtplaca);
+            $MdlCom->GuardaVehi($CmbTipVehi, $txtmarca, $txtcapcarga, $txtplaca,$CmbSoat,$CmbTecnoMec,$CmbTarOpe,$CmbMancar,$CmbSegu);
         }
         
         ?>
