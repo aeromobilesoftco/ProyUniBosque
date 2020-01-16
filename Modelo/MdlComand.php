@@ -66,6 +66,12 @@ class MdlComand
             $ctrlcom->CargaCombos("vehiculos", "concat(replace(right(concat('0000',CAST(IdVehiculos AS CHAR)),2),'0',trim(' ')),' - ',Marca)", null, null);
         }
         
+        // Contador vehiculos
+        if($opt=='10')
+        {
+            $ctrlcom->SelCounter($parampost);
+            $this->resva=$ctrlcom->rescount;
+        }        
     }
     
     public function guardaruta($Txtnomru,$TxtDisru,$CmbSelOP,$CmbEdoVia)

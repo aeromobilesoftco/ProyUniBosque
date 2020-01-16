@@ -8,7 +8,7 @@
 
     <div id="content-wrapper">
         <h1>
-            Vehiculos
+            Elementos de carga
         </h1>
         
         <!--
@@ -17,7 +17,7 @@
 
 <div id="tabs">
   <ul>
-    <li><a href="#tabs-1">Nuevo Vehiculo</a></li>
+    <li><a href="#tabs-1">Nuevo elemento</a></li>
   </ul>
   <div id="tabs-1">
       <p>
@@ -33,10 +33,10 @@
             </tr>
             <tr>
                 <td>
-                    Costo:
+                    Costo (en pesos):
                 </td>
                 <td>
-                    <input id="txtcoste" name="txtcoste" type="number" maxlength="4" min="100000" max="99999999" required>
+                    <input id="txtcoste" name="txtcoste" type="number" maxlength="4" min="1" max="99999999" required>
                 </td>
             </tr>
             <tr>

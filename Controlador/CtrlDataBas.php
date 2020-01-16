@@ -11,6 +11,7 @@ public $resultado;
 public $ComandoSQL;
 public $Zelda;
 public $notifError;
+public $rescount;
 
     public function conectar()
     { 
@@ -248,7 +249,29 @@ echo '<table border="1">'
         $this->LineaCon->close(); 
          
     }
-    
+    public function SelCounter($NomCounter)
+    {
+    	$datosu =array();
+        $this->conectar();
+        $this->ComandoSQL="SELECT COUNT(*) as valcon FROM ".$NomCounter;
+        if($this->resultado = mysqli_query($this->LineaCon,$this->ComandoSQL,MYSQLI_USE_RESULT))
+        {   
+
+            while($this->Zelda=$this->resultado->fetch_array(MYSQLI_ASSOC))
+            {
+                $this->rescount=$this->Zelda['valcon'];
+            }   
+            $this->notifError='Afirmativo';
+	        return true;	
+        }
+        else
+        {       
+                $this->notifError='Negativo';
+	        return false;	
+        }
+        $this->LineaCon->close(); 
+         
+    }    
 }
 
 ?>
