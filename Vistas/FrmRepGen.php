@@ -2,8 +2,11 @@
     include_once './MasterPage/Header.php';
     
     include_once '../Modelo/MdlComand.php';
-    
     $MdlCom= new MdlComand();
+
+    include_once '../Modelo/MdlRepGen.php';
+    $MdlRepge= new MdlRepGen();
+    
 ?>
 
     <div id="content-wrapper">
@@ -61,7 +64,7 @@
         
         if (isset($_POST['BtnGuardar']))
         {
-            $MdlCom->ImpRepGen($CmbSelVeh, $CmbSelRut);
+            $MdlRepge->ImpRepGen($CmbSelVeh, $CmbSelRut);
         }
         
         ?>
@@ -98,7 +101,7 @@
         
         if (isset($_POST['BtnGuardarVehi']))
         {
-            $MdlCom->ImpRepGenVehi($CmbSelVeh);
+            $MdlRepge->ImpRepGenVehi($CmbSelVeh);
         }
         
         ?>

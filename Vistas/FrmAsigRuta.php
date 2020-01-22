@@ -2,8 +2,10 @@
     include_once './MasterPage/Header.php';
     
     include_once '../Modelo/MdlComand.php';
-    
     $MdlCom= new MdlComand();
+    
+    include_once '../Modelo/MdlAsigRuta.php';
+    $MdlAsiru= new MdlAsigRuta();    
 ?>
 
     <div id="content-wrapper">
@@ -97,7 +99,7 @@
         
         if (isset($_POST['BtnGuardar']))
         {
-            $MdlCom->GuardaAsigRuta($CmbTipoId,$txtnumdoc,$txtnomcon,$txtapecon,$CmbTipoLic);
+            $MdlAsiru->GuardaAsigRuta($CmbTipoId,$txtnumdoc,$txtnomcon,$txtapecon,$CmbTipoLic);
         }
         
         ?>

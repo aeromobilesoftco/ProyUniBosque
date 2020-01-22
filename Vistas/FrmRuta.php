@@ -2,8 +2,11 @@
     include_once './MasterPage/Header.php';
     
     include_once '../Modelo/MdlComand.php';
-    
     $MdlCom= new MdlComand();
+
+    include_once '../Modelo/MdlRuta.php';
+    $MdlRut= new MdlComand();    
+    
 ?>
 
     <div id="content-wrapper">
@@ -77,7 +80,7 @@
         
         if (isset($_POST['BtnGuardar']))
         {
-            $MdlCom->guardaruta($Txtnomru, $TxtDisru, $CmbSelOP, $CmbEdoVia);
+            $MdlRut->guardaruta($Txtnomru, $TxtDisru, $CmbSelOP, $CmbEdoVia);
         }
         
         ?>

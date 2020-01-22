@@ -2,8 +2,11 @@
     include_once './MasterPage/Header.php';
     
     include_once '../Modelo/MdlComand.php';
-    
     $MdlCom= new MdlComand();
+    
+    include_once '../Modelo/MdlConduct.php';
+    $MdlCondu= new MdlConduct();    
+    
 ?>
 
     <div id="content-wrapper">
@@ -105,7 +108,7 @@
         
         if (isset($_POST['BtnGuardar']))
         {
-            $MdlCom->GuardaCondu($CmbTipoId, $txtnumdoc, $txtnomcon, $txtapecon, $CmbTipoLic, $txtnumlic, $TxtTel);
+            $MdlCondu->GuardaCondu($CmbTipoId, $txtnumdoc, $txtnomcon, $txtapecon, $CmbTipoLic, $txtnumlic, $TxtTel);
         }
         
         ?>

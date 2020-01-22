@@ -17,9 +17,9 @@ public $rescount;
     { 
 
         $this->servidor="localhost";
-        $this->usuario="root";
-        $this->password="";
-        $this->basedatos="TESTUNIBOSQUE";
+        $this->usuario="aeromobi_leon";
+        $this->password="nanobreaker/123";
+        $this->basedatos="aeromobi_testunibosque";
         
         $this->LineaCon= new mysqli($this->servidor, $this->usuario,$this->password,$this->basedatos);
         
@@ -141,53 +141,60 @@ public $rescount;
         }
         $this->LineaCon->close();           
     }
+
     
     public function ImpRepGen($CmbSelVeh,$CmbSelRut)
     {
-    	$datosu =array();
+
+	include 'WbsRpt/RptRepGen.php';
+	$ClsRepDeu=new RptRepGen();	
+        
         $this->conectar();
-        $this->ComandoSQL="select VehiculoAsig,conductorasig,Elemtrans,ruta,CantCarga,valcarga from V_REPGEN WHERE VehiculoAsig = '".$CmbSelVeh. "' and ruta='".$CmbSelRut."'";
+        $this->ComandoSQL="SELECT
+	concat(replace(right(concat('0000',CAST(a.IdVehiculos AS CHAR)),2),'0',trim(' ')),' - ',a.Marca,' - ',a.placa) AS VehiculoAsig
+	, concat(replace(right(concat('0000',CAST(c.idconductor AS CHAR)),2),'0',trim(' ')),' - ',c.NomConducto,' ',c.ApeConducto) AS conductorasig
+	, concat(replace(right(concat('0000',CAST(f.idElemento AS CHAR)),2),'0',trim(' ')),' - ',f.NomElemen) AS Elemtrans
+	, concat(replace(right(concat('0000',CAST(d.idruta AS CHAR)),2),'0',trim(' ')),' - ',d.NomRuta) AS ruta
+	, e.CantCarga
+	, floor(f.Costo/d.Distancia*800000) AS valcarga
+FROM 
+	Vehiculos AS a
+INNER JOIN 
+	RutaAuto AS b
+ON 
+	a.IdVehiculos=b.IdVehiculos
+INNER JOIN
+	conductor AS c
+ON 
+	c.idconductor=b.idconductor
+INNER JOIN 
+	RUTA AS d
+ON 
+	d.idruta=b.idruta
+INNER JOIN 
+	histCarga AS e
+ON 
+	e.idRutaAuto=b.idRutaAuto
+INNER JOIN
+	Elementos AS f
+ON 
+	f.idElemento=e.idElemento
+and 
+        concat(replace(right(concat('0000',CAST(a.IdVehiculos AS CHAR)),2),'0',trim(' ')),' - ',a.Marca,' - ',a.placa)='$CmbSelVeh'
+and 
+    concat(replace(right(concat('0000',CAST(d.idruta AS CHAR)),2),'0',trim(' ')),' - ',d.NomRuta)='$CmbSelRut'";
         if($this->resultado = mysqli_query($this->LineaCon,$this->ComandoSQL,MYSQLI_USE_RESULT))
         {   
-echo '<table border="1">'
-      .'<tr>'
-      .'<th>Vehiculo Asignado</th>'
-      .'<th>Conductor</th>'
-      .'<th>Elemento cargado</th>'
-      .'<th>Ruta</th>'
-      .'<th>Cantidad cargada</th>'
-      .'<th>Costo de Envio</th>'
-      .'</tr>';
+           // Genero reporte
+            $ClsRepDeu->ImpDataVehi($this->ComandoSQL);
 
-            while($this->Zelda=$this->resultado->fetch_array(MYSQLI_ASSOC))
-            {
-                echo '<tr>'
-                . '<td>'
-                . $this->Zelda['VehiculoAsig']
-                . '</td>'
-                . '<td>'
-                . $this->Zelda['conductorasig']
-                . '</td>'
-                . '<td>'
-                . $this->Zelda['Elemtrans']
-                . '</td>'
-                . '<td>'
-                . $this->Zelda['ruta']
-                . '</td>'
-                . '<td>'
-                . $this->Zelda['CantCarga']
-                . '</td>'
-                . '<td type="number">'
-                . $this->Zelda['valcarga']
-                . '</td>'
-                . '</tr>';
-            }    
-            echo '</table>';
-	        return true;	
+            $this->notifError='Afirmativo';
+	    return true;
+                
         }
         else
         {       
-                $this->notifError='Negativo';
+            echo 'error '.  $this->LineaCon->error;
 	        return false;	
         }
         $this->LineaCon->close(); 
@@ -196,59 +203,48 @@ echo '<table border="1">'
 
     public function ImpRepGenVehi($CmbSelVeh)
     {
-    	$datosu =array();
+
+	include 'WbsRpt/RptRepVehi.php';
+	$ClsRepDeuVehi=new RptRepVehi();	
+	
         $this->conectar();
-        $this->ComandoSQL="select Vehiculo,placa,ManifestoCarga,Seguro,SOAT,TarjetaOperacion,TecnicoMecanica from V_REPVEHI WHERE Vehiculo = '".$CmbSelVeh. "'";
+        $this->ComandoSQL="SELECT
+	concat(replace(right(concat('0000',CAST(a.IdVehiculos AS CHAR)),2),'0',trim(' ')),' - ',a.Marca) AS Vehiculo
+	, a.placa
+	, b.ManifestoCarga
+	, b.Seguro
+	, b.SOAT
+	, b.TarjetaOperacion
+	, b.TecnicoMecanica
+FROM 
+	Vehiculos AS a
+INNER JOIN 
+	DocuVehiculo AS b
+ON
+	a.IdVehiculos=b.IdVehiculos
+where 
+concat(replace(right(concat('0000',CAST(a.IdVehiculos AS CHAR)),2),'0',trim(' ')),' - ',a.Marca)='$CmbSelVeh'";
+
+
         if($this->resultado = mysqli_query($this->LineaCon,$this->ComandoSQL,MYSQLI_USE_RESULT))
         {   
-echo '<table border="1">'
-      .'<tr>'
-      .'<th>Vehiculo</th>'
-      .'<th>placa</th>'
-      .'<th>Manifesto de Carga</th>'
-      .'<th>Seguro</th>'
-      .'<th>SOAT</th>'
-      .'<th>Tarjeta Operacion</th>'
-      .'<th>Tecnico Mecanica</th>'
-      .'</tr>';
+           // Genero reporte
+            $ClsRepDeuVehi->ImpDataVehi($this->ComandoSQL);
 
-            while($this->Zelda=$this->resultado->fetch_array(MYSQLI_ASSOC))
-            {
-                echo '<tr>'
-                . '<td>'
-                . $this->Zelda['Vehiculo']
-                . '</td>'
-                . '<td>'
-                . $this->Zelda['placa']
-                . '</td>'
-                . '<td>'
-                . $this->Zelda['ManifestoCarga']
-                . '</td>'
-                . '<td>'
-                . $this->Zelda['Seguro']
-                . '</td>'
-                . '<td>'
-                . $this->Zelda['SOAT']
-                . '</td>'
-                . '<td>'
-                . $this->Zelda['TarjetaOperacion']
-                . '</td>'
-                . '<td>'
-                . $this->Zelda['TecnicoMecanica']
-                . '</td>'
-                . '</tr>';
-            }    
-            echo '</table>';
-	        return true;	
+            $this->notifError='Afirmativo';
+	    return true;
+                
         }
         else
         {       
-                $this->notifError='Negativo';
+            echo 'error '.  $this->LineaCon->error;
 	        return false;	
         }
         $this->LineaCon->close(); 
          
+         
     }
+    
     public function SelCounter($NomCounter)
     {
     	$datosu =array();

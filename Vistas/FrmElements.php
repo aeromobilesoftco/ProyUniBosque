@@ -2,8 +2,11 @@
     include_once './MasterPage/Header.php';
     
     include_once '../Modelo/MdlComand.php';
-    
     $MdlCom= new MdlComand();
+
+    include_once '../Modelo/MdlElements.php';
+    $MdlElemi= new MdlElements();
+    
 ?>
 
     <div id="content-wrapper">
@@ -64,7 +67,7 @@
         
         if (isset($_POST['BtnGuardar']))
         {
-            $MdlCom->GuardaElemento($TxtEleme, $txtcoste, $CmbTipopeso);
+            $MdlElemi->GuardaElemento($TxtEleme, $txtcoste, $CmbTipopeso);
         }
         
         ?>

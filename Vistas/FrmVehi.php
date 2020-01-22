@@ -2,8 +2,10 @@
     include_once './MasterPage/Header.php';
     
     include_once '../Modelo/MdlComand.php';
-    
     $MdlCom= new MdlComand();
+
+    include_once '../Modelo/MdlVehi.php';
+    $MdlVehicu=new MdlVehi();
 ?>
 
     <div id="content-wrapper">
@@ -134,7 +136,7 @@
         
         if (isset($_POST['BtnGuardar']))
         {
-            $MdlCom->GuardaVehi($CmbTipVehi, $txtmarca, $txtcapcarga, $txtplaca,$CmbSoat,$CmbTecnoMec,$CmbTarOpe,$CmbMancar,$CmbSegu);
+            $MdlVehicu->GuardaVehi($CmbTipVehi, $txtmarca, $txtcapcarga, $txtplaca,$CmbSoat,$CmbTecnoMec,$CmbTarOpe,$CmbMancar,$CmbSegu);
         }
         
         ?>
