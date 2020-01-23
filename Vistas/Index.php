@@ -1,8 +1,8 @@
 <?php
     include_once './MasterPage/Header.php';
-    include_once '../Modelo/MdlComand.php';
-    
+    include_once '../Controlador/MdlComand.php';
     $MdlCom= new MdlComand();
+
 ?>
 
     <div id="content-wrapper">

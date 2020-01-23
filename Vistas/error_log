@@ -337,3 +337,74 @@
 [22-Jan-2020 03:14:09 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/aeromobi/public_html/DemusBosque/DemusUniver/Controlador/WbsRpt/RptRepVehi.php on line 16
 [22-Jan-2020 03:15:41 UTC] PHP Warning:  include_once(./Controlador/CtrlDataBas.php): failed to open stream: No such file or directory in /home/aeromobi/public_html/DemusBosque/DemusUniver/Modelo/MdlRepGen.php on line 32
 [22-Jan-2020 03:15:41 UTC] PHP Warning:  include_once(): Failed opening './Controlador/CtrlDataBas.php' for inclusion (include_path='.:/opt/cpanel/ea-php56/root/usr/share/pear') in /home/aeromobi/public_html/DemusBosque/DemusUniver/Modelo/MdlRepGen.php on line 32
+[23-Jan-2020 04:27:22 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'aeromobi_testunibosque.vehiculos' doesn't exist' in /home/aeromobi/public_html/DemusBosque/DemusUniver/Modelo/CtrlConex.php:75
+Stack trace:
+#0 /home/aeromobi/public_html/DemusBosque/DemusUniver/Modelo/CtrlConex.php(75): PDO->query('SELECT * FROM v...')
+#1 /home/aeromobi/public_html/DemusBosque/DemusUniver/Controlador/MdlComand.php(62): CtrlConex->SelCounter('vehiculos')
+#2 /home/aeromobi/public_html/DemusBosque/DemusUniver/Vistas/Index.php(27): MdlComand->cargacombo('10', 'vehiculos')
+#3 {main}
+  thrown in /home/aeromobi/public_html/DemusBosque/DemusUniver/Modelo/CtrlConex.php on line 75
+[23-Jan-2020 04:27:38 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'aeromobi_testunibosque.vehiculos' doesn't exist' in /home/aeromobi/public_html/DemusBosque/DemusUniver/Modelo/CtrlConex.php:75
+Stack trace:
+#0 /home/aeromobi/public_html/DemusBosque/DemusUniver/Modelo/CtrlConex.php(75): PDO->query('SELECT * FROM v...')
+#1 /home/aeromobi/public_html/DemusBosque/DemusUniver/Controlador/MdlComand.php(62): CtrlConex->SelCounter('vehiculos')
+#2 /home/aeromobi/public_html/DemusBosque/DemusUniver/Vistas/Index.php(27): MdlComand->cargacombo('10', 'vehiculos')
+#3 {main}
+  thrown in /home/aeromobi/public_html/DemusBosque/DemusUniver/Modelo/CtrlConex.php on line 75
+[23-Jan-2020 04:28:13 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'aeromobi_testunibosque.vehiculos' doesn't exist' in /home/aeromobi/public_html/DemusBosque/DemusUniver/Modelo/CtrlConex.php:75
+Stack trace:
+#0 /home/aeromobi/public_html/DemusBosque/DemusUniver/Modelo/CtrlConex.php(75): PDO->query('SELECT * FROM v...')
+#1 /home/aeromobi/public_html/DemusBosque/DemusUniver/Controlador/MdlComand.php(62): CtrlConex->SelCounter('vehiculos')
+#2 /home/aeromobi/public_html/DemusBosque/DemusUniver/Vistas/Index.php(27): MdlComand->cargacombo('10', 'vehiculos')
+#3 {main}
+  thrown in /home/aeromobi/public_html/DemusBosque/DemusUniver/Modelo/CtrlConex.php on line 75
+[23-Jan-2020 04:28:19 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'aeromobi_testunibosque.vehiculos' doesn't exist' in /home/aeromobi/public_html/DemusBosque/DemusUniver/Modelo/CtrlConex.php:75
+Stack trace:
+#0 /home/aeromobi/public_html/DemusBosque/DemusUniver/Modelo/CtrlConex.php(75): PDO->query('SELECT * FROM v...')
+#1 /home/aeromobi/public_html/DemusBosque/DemusUniver/Controlador/MdlComand.php(62): CtrlConex->SelCounter('vehiculos')
+#2 /home/aeromobi/public_html/DemusBosque/DemusUniver/Vistas/Index.php(27): MdlComand->cargacombo('10', 'vehiculos')
+#3 {main}
+  thrown in /home/aeromobi/public_html/DemusBosque/DemusUniver/Modelo/CtrlConex.php on line 75
+[23-Jan-2020 04:28:36 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'aeromobi_testunibosque.vehiculos' doesn't exist' in /home/aeromobi/public_html/DemusBosque/DemusUniver/Modelo/CtrlConex.php:75
+Stack trace:
+#0 /home/aeromobi/public_html/DemusBosque/DemusUniver/Modelo/CtrlConex.php(75): PDO->query('SELECT * FROM v...')
+#1 /home/aeromobi/public_html/DemusBosque/DemusUniver/Controlador/MdlComand.php(62): CtrlConex->SelCounter('vehiculos')
+#2 /home/aeromobi/public_html/DemusBosque/DemusUniver/Vistas/Index.php(27): MdlComand->cargacombo('10', 'vehiculos')
+#3 {main}
+  thrown in /home/aeromobi/public_html/DemusBosque/DemusUniver/Modelo/CtrlConex.php on line 75
+[23-Jan-2020 04:29:56 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'aeromobi_testunibosque.vehiculos' doesn't exist' in /home/aeromobi/public_html/DemusBosque/DemusUniver/Modelo/CtrlConex.php:75
+Stack trace:
+#0 /home/aeromobi/public_html/DemusBosque/DemusUniver/Modelo/CtrlConex.php(75): PDO->query('SELECT * FROM v...')
+#1 /home/aeromobi/public_html/DemusBosque/DemusUniver/Controlador/MdlComand.php(62): CtrlConex->SelCounter('vehiculos')
+#2 /home/aeromobi/public_html/DemusBosque/DemusUniver/Vistas/Index.php(27): MdlComand->cargacombo('10', 'vehiculos')
+#3 {main}
+  thrown in /home/aeromobi/public_html/DemusBosque/DemusUniver/Modelo/CtrlConex.php on line 75
+[23-Jan-2020 04:30:34 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'aeromobi_testunibosque.vehiculos' doesn't exist' in /home/aeromobi/public_html/DemusBosque/DemusUniver/Modelo/CtrlConex.php:75
+Stack trace:
+#0 /home/aeromobi/public_html/DemusBosque/DemusUniver/Modelo/CtrlConex.php(75): PDO->query('SELECT * FROM v...')
+#1 /home/aeromobi/public_html/DemusBosque/DemusUniver/Controlador/MdlComand.php(62): CtrlConex->SelCounter('vehiculos')
+#2 /home/aeromobi/public_html/DemusBosque/DemusUniver/Vistas/Index.php(27): MdlComand->cargacombo('10', 'vehiculos')
+#3 {main}
+  thrown in /home/aeromobi/public_html/DemusBosque/DemusUniver/Modelo/CtrlConex.php on line 75
+[23-Jan-2020 04:31:23 UTC] PHP Warning:  include_once(../MasterPage/Header.php): failed to open stream: No such file or directory in /home/aeromobi/public_html/DemusBosque/DemusUniver/Vistas/Index.php on line 2
+[23-Jan-2020 04:31:23 UTC] PHP Warning:  include_once(): Failed opening '../MasterPage/Header.php' for inclusion (include_path='.:/opt/cpanel/ea-php56/root/usr/share/pear') in /home/aeromobi/public_html/DemusBosque/DemusUniver/Vistas/Index.php on line 2
+[23-Jan-2020 04:31:23 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'aeromobi_testunibosque.vehiculos' doesn't exist' in /home/aeromobi/public_html/DemusBosque/DemusUniver/Modelo/CtrlConex.php:75
+Stack trace:
+#0 /home/aeromobi/public_html/DemusBosque/DemusUniver/Modelo/CtrlConex.php(75): PDO->query('SELECT * FROM v...')
+#1 /home/aeromobi/public_html/DemusBosque/DemusUniver/Controlador/MdlComand.php(62): CtrlConex->SelCounter('vehiculos')
+#2 /home/aeromobi/public_html/DemusBosque/DemusUniver/Vistas/Index.php(27): MdlComand->cargacombo('10', 'vehiculos')
+#3 {main}
+  thrown in /home/aeromobi/public_html/DemusBosque/DemusUniver/Modelo/CtrlConex.php on line 75
+[23-Jan-2020 04:31:38 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'aeromobi_testunibosque.vehiculos' doesn't exist' in /home/aeromobi/public_html/DemusBosque/DemusUniver/Modelo/CtrlConex.php:75
+Stack trace:
+#0 /home/aeromobi/public_html/DemusBosque/DemusUniver/Modelo/CtrlConex.php(75): PDO->query('SELECT * FROM v...')
+#1 /home/aeromobi/public_html/DemusBosque/DemusUniver/Controlador/MdlComand.php(62): CtrlConex->SelCounter('vehiculos')
+#2 /home/aeromobi/public_html/DemusBosque/DemusUniver/Vistas/Index.php(27): MdlComand->cargacombo('10', 'vehiculos')
+#3 {main}
+  thrown in /home/aeromobi/public_html/DemusBosque/DemusUniver/Modelo/CtrlConex.php on line 75
+[23-Jan-2020 04:37:30 UTC] PHP Warning:  include_once(../Modelo/CtrlDataBas.php): failed to open stream: No such file or directory in /home/aeromobi/public_html/DemusBosque/DemusUniver/Controlador/MdlVehi.php on line 9
+[23-Jan-2020 04:37:30 UTC] PHP Warning:  include_once(): Failed opening '../Modelo/CtrlDataBas.php' for inclusion (include_path='.:/opt/cpanel/ea-php56/root/usr/share/pear') in /home/aeromobi/public_html/DemusBosque/DemusUniver/Controlador/MdlVehi.php on line 9
+[23-Jan-2020 04:37:30 UTC] PHP Fatal error:  Class 'CtrlDataBas' not found in /home/aeromobi/public_html/DemusBosque/DemusUniver/Controlador/MdlVehi.php on line 10
+[23-Jan-2020 04:38:25 UTC] PHP Warning:  include_once(../Modelo/CtrlDataBas.php): failed to open stream: No such file or directory in /home/aeromobi/public_html/DemusBosque/DemusUniver/Controlador/MdlVehi.php on line 9
+[23-Jan-2020 04:38:25 UTC] PHP Warning:  include_once(): Failed opening '../Modelo/CtrlDataBas.php' for inclusion (include_path='.:/opt/cpanel/ea-php56/root/usr/share/pear') in /home/aeromobi/public_html/DemusBosque/DemusUniver/Controlador/MdlVehi.php on line 9
+[23-Jan-2020 04:38:25 UTC] PHP Fatal error:  Class 'CtrlDataBas' not found in /home/aeromobi/public_html/DemusBosque/DemusUniver/Controlador/MdlVehi.php on line 10

@@ -1,10 +1,10 @@
 <?php
     include_once './MasterPage/Header.php';
     
-    include_once '../Modelo/MdlComand.php';
+    include_once '../Controlador/MdlComand.php';
     $MdlCom= new MdlComand();
 
-    include_once '../Modelo/MdlRepGen.php';
+    include_once '../Controlador/MdlRepGen.php';
     $MdlRepge= new MdlRepGen();
     
 ?>

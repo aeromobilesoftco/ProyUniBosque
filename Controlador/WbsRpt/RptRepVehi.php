@@ -9,7 +9,7 @@ class RptRepVehi{
         //$ctrlcom= new CtrlDataBas();
         
         // llamo a la conexion realizada en sgl_conex
-        require_once '../Controlador/Sgl_conex.php';
+        require_once '../Modelo/Sgl_conex.php';
         $dbcon1= Sgl_conex::Getinstance();
         $dbconexe1=$dbcon1->abreconex(); 
         

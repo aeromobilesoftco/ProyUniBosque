@@ -1,10 +1,10 @@
 <?php
     include_once './MasterPage/Header.php';
     
-    include_once '../Modelo/MdlComand.php';
+    include_once '../Controlador/MdlComand.php';
     $MdlCom= new MdlComand();
 
-    include_once '../Modelo/MdlVehi.php';
+    include_once '../Controlador/MdlVehi.php';
     $MdlVehicu=new MdlVehi();
 ?>
 
