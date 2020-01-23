@@ -7,9 +7,8 @@ class MdlComand
     {
         
         // Esta funcion estara encargada de cargar los combos de manera dinamica
-        include_once '../Controlador/CtrlDataBas.php';
-        
-        $ctrlcom= new CtrlDataBas();
+        include_once '../Controlador/CtrlConex.php';
+        $ctrlcom= new CtrlConex();
         
         switch ($opt)
         {

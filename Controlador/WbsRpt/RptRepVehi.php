@@ -5,17 +5,22 @@ class RptRepVehi{
     public function ImpDataVehi($comandoSQl)
     {
         // Conecto mi database
-        include_once '../Controlador/CtrlDataBas.php';
-        $ctrlcom= new CtrlDataBas();
+        //include_once '../Controlador/CtrlDataBas.php';
+        //$ctrlcom= new CtrlDataBas();
         
-        $ctrlcom->conectar();
+        // llamo a la conexion realizada en sgl_conex
+        require_once '../Controlador/Sgl_conex.php';
+        $dbcon1= Sgl_conex::Getinstance();
+        $dbconexe1=$dbcon1->abreconex(); 
         
-        
-        $ConexaRptRepGen= new mysqli ($ctrlcom->servidor,$ctrlcom->usuario,$ctrlcom->password,$ctrlcom->basedatos);
+        $stmt = $dbconexe1->prepare($comandoSQl);
+        // Especificamos el fetch mode antes de llamar a fetch()
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        // Ejecutamos
+        $stmt->execute();
+        // Mostramos los resultados
 
-        if($this->resultado = mysqli_query($ctrlcom->LineaCon,$comandoSQl,MYSQLI_USE_RESULT))
-        {   
-echo '<table border="1">'
+        echo '<table id="datatable" border="1" class="table table-bordered dataTable">'
       .'<tr>'
       .'<th>Vehiculo</th>'
       .'<th>placa</th>'
@@ -25,43 +30,35 @@ echo '<table border="1">'
       .'<th>Tarjeta Operacion</th>'
       .'<th>Tecnico Mecanica</th>'
       .'</tr>';
-
-            while($this->Zelda=$this->resultado->fetch_array(MYSQLI_ASSOC))
-            {
+        
+        while ($row = $stmt->fetch())
+        {
                 echo '<tr>'
                 . '<td>'
-                . $this->Zelda['Vehiculo']
+                . $row['Vehiculo']
                 . '</td>'
                 . '<td>'
-                . $this->Zelda['placa']
+                . $row['placa']
                 . '</td>'
                 . '<td>'
-                . $this->Zelda['ManifestoCarga']
+                . $row['ManifestoCarga']
                 . '</td>'
                 . '<td>'
-                . $this->Zelda['Seguro']
+                . $row['Seguro']
                 . '</td>'
                 . '<td>'
-                . $this->Zelda['SOAT']
+                . $row['SOAT']
                 . '</td>'
                 . '<td>'
-                . $this->Zelda['TarjetaOperacion']
+                . $row['TarjetaOperacion']
                 . '</td>'
                 . '<td>'
-                . $this->Zelda['TecnicoMecanica']
+                . $row['TecnicoMecanica']
                 . '</td>'
                 . '</tr>';
-            }    
-            echo '</table>';
-	        return true;	
-        }
-        else
-        {       
-                $this->notifError='Negativo';
-	        return false;	
-        }
-        $this->LineaCon->close(); 
-         
+        }          
+        echo '</table>';
+        
     }
 }
 ?>

@@ -6,8 +6,12 @@ class MdlRuta {
     public function guardaruta($Txtnomru,$TxtDisru,$CmbSelOP,$CmbEdoVia)
     {
         // Esta funcion estara encargada de cargar los combos de manera dinamica
-        include_once '../Controlador/CtrlDataBas.php';
-        $ctrlcom= new CtrlDataBas();
+        //include_once '../Controlador/CtrlDataBas.php';
+        //$ctrlcom= new CtrlDataBas();
+        
+        // Esta funcion estara encargada de cargar los combos de manera dinamica
+        include_once '../Controlador/CtrlConex.php';
+        $ctrlcom= new CtrlConex();
         
         $paramenvia="'$Txtnomru',".$TxtDisru.",1,cast(LEFT('".$CmbEdoVia."',1)as char)";
         

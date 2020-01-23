@@ -5,7 +5,7 @@
     $MdlCom= new MdlComand();
 
     include_once '../Modelo/MdlRuta.php';
-    $MdlRut= new MdlComand();    
+    $MdlRut= new MdlRuta();    
     
 ?>
 

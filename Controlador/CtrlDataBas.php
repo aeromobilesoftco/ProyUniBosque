@@ -17,9 +17,9 @@ public $rescount;
     { 
 
         $this->servidor="localhost";
-        $this->usuario="aeromobi_leon";
-        $this->password="nanobreaker/123";
-        $this->basedatos="aeromobi_testunibosque";
+        $this->usuario="root";
+        $this->password="";
+        $this->basedatos="testunibosque";
         
         $this->LineaCon= new mysqli($this->servidor, $this->usuario,$this->password,$this->basedatos);
         

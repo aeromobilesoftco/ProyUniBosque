@@ -6,8 +6,12 @@ class MdlConduct {
     public function GuardaCondu($CmbTipoId,$txtnumdoc,$txtnomcon,$txtapecon,$CmbTipoLic,$txtnumlic,$TxtTel)
     {
         // Esta funcion estara encargada de cargar los combos de manera dinamica
-        include_once '../Controlador/CtrlDataBas.php';
-        $ctrlcom= new CtrlDataBas();
+        //include_once '../Controlador/CtrlDataBas.php';
+        //$ctrlcom= new CtrlDataBas();
+        
+        // Esta funcion estara encargada de cargar los combos de manera dinamica
+        include_once '../Controlador/CtrlConex.php';
+        $ctrlcom= new CtrlConex();
         
         $paramenvia="'$txtnomcon','$txtapecon',cast(LEFT('".$CmbTipoId."',1)as char),'$txtnumdoc',cast(LEFT('".$CmbTipoLic."',1)as char),'$txtnumlic','$TxtTel'";
         

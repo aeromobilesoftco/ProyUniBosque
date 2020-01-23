@@ -4,60 +4,55 @@ class RptRepGen{
     public $ConexaRptRepGen;
     public function ImpDataVehi($comandoSQl)
     {
-
         // Conecto mi database
-        include_once '../Controlador/CtrlDataBas.php';
-        $ctrlcom= new CtrlDataBas();
+        //include_once '../Controlador/CtrlDataBas.php';
+        //$ctrlcom= new CtrlDataBas();
         
-        $ctrlcom->conectar();
+        // llamo a la conexion realizada en sgl_conex
+        require_once '../Controlador/Sgl_conex.php';
+        $dbcon1= Sgl_conex::Getinstance();
+        $dbconexe1=$dbcon1->abreconex(); 
         
-        
-        $ConexaRptRepGen= new mysqli ($ctrlcom->servidor,$ctrlcom->usuario,$ctrlcom->password,$ctrlcom->basedatos);
+        $stmt = $dbconexe1->prepare($comandoSQl);
+        // Especificamos el fetch mode antes de llamar a fetch()
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        // Ejecutamos
+        $stmt->execute();
+        // Mostramos los resultados
 
-        if($this->resultado = mysqli_query($ctrlcom->LineaCon,$comandoSQl,MYSQLI_USE_RESULT))
-        {   
-echo '<table border="1">'
-      .'<tr>'
-      .'<th>Vehiculo Asignado</th>'
-      .'<th>Conductor</th>'
-      .'<th>Elemento cargado</th>'
-      .'<th>Ruta</th>'
-      .'<th>Cantidad cargada</th>'
-      .'<th>Costo de Envio</th>'
-      .'</tr>';
-
-            while($this->Zelda=$this->resultado->fetch_array(MYSQLI_ASSOC))
-            {
+        echo '<table id="datatable" border="1" class="table table-bordered dataTable">'
+        .'<tr>'
+        .'<th>Vehiculo Asignado</th>'
+        .'<th>Conductor</th>'
+        .'<th>Elemento cargado</th>'
+        .'<th>Ruta</th>'
+        .'<th>Cantidad cargada</th>'
+        .'<th>Costo de Envio</th>'
+        .'</tr>';
+        while ($row = $stmt->fetch())
+        {
                 echo '<tr>'
                 . '<td>'
-                . $this->Zelda['VehiculoAsig']
+                . $row['VehiculoAsig']
                 . '</td>'
                 . '<td>'
-                . $this->Zelda['conductorasig']
+                . $row['conductorasig']
                 . '</td>'
                 . '<td>'
-                . $this->Zelda['Elemtrans']
+                . $row['Elemtrans']
                 . '</td>'
                 . '<td>'
-                . $this->Zelda['ruta']
+                . $row['ruta']
                 . '</td>'
                 . '<td>'
-                . $this->Zelda['CantCarga']
+                . $row['CantCarga']
                 . '</td>'
                 . '<td type="number">'
-                . $this->Zelda['valcarga']
+                . $row['valcarga']
                 . '</td>'
                 . '</tr>';
-            }    
-            echo '</table>';
-	        return true;	
-        }
-        else
-        {       
-                $this->notifError='Negativo';
-	        return false;	
-        }
-        $this->LineaCon->close(); 
+        }          
+        echo '</table>';
         
     }
 }

@@ -24,7 +24,7 @@
                 <div class="mr-5">
                         <?php
                             // Llamo a la funcion del modelo carga combo para traer el estado de la via
-                        $MdlCom->cargacombo("10", "vehiculos");
+                        $MdlCom->cargacombo("10", "Vehiculos");
                         echo 'Tienes '.$MdlCom->resva.' Vehiculos';
                         ?>
                 </div>
@@ -46,7 +46,7 @@
                 <div class="mr-5">
                         <?php
                             // Llamo a la funcion del modelo carga combo para traer el estado de la via
-                        $MdlCom->cargacombo("10", "ruta");
+                        $MdlCom->cargacombo("10", "RUTA");
                         echo 'Tienes '.$MdlCom->resva.' Rutas';
                         ?>
                 </div>
@@ -68,7 +68,7 @@
                 <div class="mr-5">
                         <?php
                             // Llamo a la funcion del modelo carga combo para traer el estado de la via
-                        $MdlCom->cargacombo("10", "elementos");
+                        $MdlCom->cargacombo("10", "Elementos");
                         echo 'Tienes '.$MdlCom->resva.' Tipos de carga';
                         ?>
                 </div>
